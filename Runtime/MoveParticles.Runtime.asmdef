@@ -1,3 +1,16 @@
 {
-	"name": "MoveParticles.Runtime"
+    "name": "MoveParticles.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "DOTween.Modules"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
