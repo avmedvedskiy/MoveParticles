@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[ExecuteAlways]
 public class MoveParticlesToTargetByVelocity : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _system;
@@ -17,21 +18,21 @@ public class MoveParticlesToTargetByVelocity : MonoBehaviour
         set => _target = value;
     }
 
-    private void Awake()
-    {
-        _particles = new ParticleSystem.Particle[_system.main.maxParticles];
-    }
-
     public void Play(Transform target)
     {
         Target = target;
         _system.Play(true);
     }
 
+    [SerializeField] private float lerpValue = 2f;
+    [SerializeField] private float speedValue = 2f;
+
     private void LateUpdate()
     {
         if (Target == null)
             return;
+        
+        _particles ??= new ParticleSystem.Particle[_system.main.maxParticles];
 
         Vector3 targetPos;
         switch (_system.main.simulationSpace)
@@ -61,11 +62,18 @@ public class MoveParticlesToTargetByVelocity : MonoBehaviour
 
             if (normalizedElapsedLifetime > _elapsedMoveTime)
             {
-                Vector3 pos = _particles[i].position;
+                ref var particle = ref _particles[i];
+                Vector3 pos = particle.position;
                 Vector2 direction = targetPos - pos;
-                float speed = direction.magnitude / remainingLifetime;
+                
+                //magic lerp and speed values
+                float speed = direction.magnitude / remainingLifetime * speedValue;
+                Vector3 newDirection = Vector3.Lerp(particle.velocity, direction.normalized * speed,
+                    Time.deltaTime * lerpValue);
 
-                _particles[i].velocity = direction.normalized * speed;
+                _particles[i].velocity = newDirection;
+
+                Debug.DrawRay(pos, newDirection.normalized, Color.red);
             }
         }
 

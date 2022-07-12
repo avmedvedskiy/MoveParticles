@@ -347,17 +347,17 @@ PrefabInstance:
     - target: {fileID: 2066695290178798400, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.72
       objectReference: {fileID: 0}
     - target: {fileID: 2066695290178798400, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 18.49
       objectReference: {fileID: 0}
     - target: {fileID: 2066695290178798400, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2066695290178798400, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
@@ -457,7 +457,7 @@ PrefabInstance:
     - target: {fileID: 4356227565399934428, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4356227565399934428, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
@@ -487,7 +487,7 @@ PrefabInstance:
     - target: {fileID: 4356227565399934428, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
       propertyPath: ClampVelocityModule.multiplyDragByParticleVelocity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5960804798313088655, guid: ecb6efcf59a84144b8737a497a9818d1,
         type: 3}
@@ -528,4 +528,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _system: {fileID: 1975267133}
   _target: {fileID: 128769345}
-  _elapsedMoveTime: 0.63
+  _elapsedMoveTime: 0.541
+  lerpValue: 2
+  speedValue: 3
